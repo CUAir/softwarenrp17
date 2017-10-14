@@ -1,6 +1,8 @@
 from termcolor import colored
 import csv
 import cv2
+from segmentation import Segmenter
+from color_classifier import ColorClassifier
 
 
 def get_color_training_data(path):
@@ -24,25 +26,6 @@ def get_testing_data(path):
             alpha_color = row[2]
             testing_data.append((img_name, (shape_color, alpha_color)))
     return testing_data
-
-
-class ColorClassifier(object):
-    def __init__(self, training_data):
-        #TODO train a color classifcation model
-        pass
-
-    def classify(self, color):
-        return "white"
-
-
-class Segmenter(object):
-    def __init__(self):
-        pass
-
-    # Segments an image and returns the average color of shape and letter
-    # returns shape_color, alpha_color
-    def segment_image(self, image):
-        return (0, 0, 0), (0, 0, 0)
 
 
 class ShapeAlphaColorClassifier(object):
